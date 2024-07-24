@@ -49,7 +49,7 @@ def PAK():
         f'@echo "{Path(GlobalVariables.output_path)}\\{base_file_name}\*.*" "../../../{GlobalVariables.game_name}/" > "{file_list}"',
         shell=True)
 
-    cmd = f'"{unrealpak_path}" "{Path(GlobalVariables.output_path)}\\{base_file_name}.pak" -create="{os.path.abspath(file_list)}" -compress'
+    cmd = f'"{unrealpak_path}" "{Path(GlobalVariables.output_path)}\\{base_file_name}.pak" -create="{os.path.abspath(file_list)}" -compress -compressionformats=Oodle -compressmethod=Kraken -compresslevel=4'
 
     # Create pak file
     output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).stdout
